@@ -1,0 +1,36 @@
+[general]
+ui = TTY.TTYUI
+accounts = jnwng
+pythonfile = ~/.mutt/offlineimap.py
+fsync = False
+
+[Account jnwng]
+localrepository = jnwng-local
+remoterepository = jnwng-remote
+status_backend = sqlite
+
+[Repository jnwng-local]
+type = Maildir
+localfolders = ~/.mail/j-jnwng.com
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository jnwng-remote]
+maxconnections = 1
+type = Gmail
+remoteuser = j@jnwng.com
+remotepasseval = get_keychain_pass(account="j@jnwng.com", server="imap.gmail.com")
+realdelete = no
+nametrans =  
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Spam']
