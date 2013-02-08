@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sammy"
+ZSH_THEME="minimal"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -34,7 +34,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/nginx/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/nginx/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/jnwng/bin
 
 alias git=hub
 alias gc='git checkout'
@@ -45,6 +45,6 @@ alias gd='git diff'
 alias gp='git push'
 alias gpr='git pull-request'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-eval "$(rbenv init -)"
+function mutt() {
+    bash --login -c 'cd ~/Desktop; /usr/local/bin/mutt' $argv;
+}
