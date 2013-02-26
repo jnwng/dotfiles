@@ -4,12 +4,14 @@ set nocompatible
 set clipboard=unnamed
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
 " github repos
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 
 set t_Co=256
@@ -86,6 +88,9 @@ if exists("&relativenumber")
 endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
