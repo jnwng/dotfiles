@@ -2,6 +2,18 @@
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" github repos
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+
+set t_Co=256
+
 " Enhance command-line completion
 set wildmenu
 " Allow cursor keys in insert mode
@@ -41,7 +53,7 @@ set cursorline
 set tabstop=4
 set expandtab
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
 " Highlight searches
 set hlsearch
@@ -95,6 +107,8 @@ if has("autocmd")
     filetype plugin indent on
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+"
 endif
 
 imap jj <Esc>
