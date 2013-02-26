@@ -36,7 +36,9 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/nginx/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/jnwng/bin
 
-source ~/viperdb.zshrc
+if [ -e "~/viperdb.zshrc" ]; then
+        source ~/viperdb.zshrc
+fi
 
 alias git=hub
 alias gc='git checkout'
